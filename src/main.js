@@ -5,6 +5,7 @@ const STORAGE_KEY = 'memo-content'
 
 const editor = document.getElementById('editor')
 const preview = document.getElementById('preview')
+const downloadBtn = document.getElementById('download-btn')
 
 const updatePreview = () => {
   preview.innerHTML = marked.parse(editor.value)
@@ -24,4 +25,18 @@ editor.addEventListener('input', () => {
   localStorage.setItem(STORAGE_KEY, editor.value)
   updatePreview()
 })
+
+// Download markdown file
+downloadBtn.addEventListener('click', () => {
+  const blob = new Blob([editor.value], { type: 'text/markdown' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = 'memo.md'
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
+})
+
 
