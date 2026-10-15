@@ -338,3 +338,12 @@ body {
     border-bottom: 1px solid var(--border-color);
   }
 }
+
+.app-title {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: white;
+  opacity: 0.5;
+  pointer-events: none;
+}
