@@ -6,6 +6,7 @@ const STORAGE_KEY = 'memo-content'
 const editor = document.getElementById('editor')
 const preview = document.getElementById('preview')
 const downloadBtn = document.getElementById('download-btn')
+const clearBtn = document.getElementById('clear-btn')
 
 const updatePreview = () => {
   preview.innerHTML = marked.parse(editor.value)
@@ -38,5 +39,13 @@ downloadBtn.addEventListener('click', () => {
   document.body.removeChild(a)
   URL.revokeObjectURL(url)
 })
+
+// Clear editor content, localStorage, and preview
+clearBtn.addEventListener('click', () => {
+  editor.value = ''
+  localStorage.removeItem(STORAGE_KEY)
+  preview.innerHTML = ''
+})
+
 
 
