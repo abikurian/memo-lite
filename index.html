@@ -10,13 +10,17 @@
 </head>
 
 <body>
-  <button id="clear-btn">Clear</button>
-  <button id="download-btn">Download .md</button>
-  <div class="split-container">
+  <header class="app-header">
     <h1 class="app-title">Memo Lite</h1>
+    <div class="header-actions">
+      <button id="clear-btn">Clear</button>
+      <button id="download-btn">Download .md</button>
+    </div>
+  </header>
+  <main class="workspace">
     <textarea id="editor" placeholder="Start typing markdown here..."></textarea>
     <div id="preview"></div>
-  </div>
+  </main>
   <script type="module" src="/src/main.js"></script>
 </body>
 
